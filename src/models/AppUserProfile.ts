@@ -11,6 +11,11 @@ export interface IAttributes extends IDefaultModelAttributes {
 
     UserUid: IPrimaryKey;
 
+    data: {
+        commentsMap: { [id: number]: string };
+        likedBeerIds: number[];
+    };
+
     User?: IUserInstance;
 }
 
@@ -59,45 +64,48 @@ export default function createAppUserProfileModel(sequelize: SEQUELIZE.Sequelize
             type: SEQUELIZE.DATE,
             allowNull: true,
             defaultValue: null
+        },
+        data: {
+            type: SEQUELIZE.JSONB,
+            allowNull: true
         }
-        // ... your custom fields ...
     }, {
-            classMethods: {
-                associate: function (models: IModels) {
-                    // tslint:disable:no-void-expression
-                    associations = {
-                        // foreign key of User is primary key of this model
-                        User: AppUserProfile.belongsTo(models.User, {
-                            foreignKey: "UserUid", // fk in current model
-                            targetKey: "uid" // reference primary key in other model
-                        })
-                    };
-                    // tslint:enable:no-void-expression
-                }
-            },
-            instanceMethods: {
-                getAppUserProfileJsonObject: async function (this: IInstance): Promise<Object> {
-                    const user = await this.getUser();
-                    const userJson = await user.getUserJsonObject();
-
-                    return {
-                        uid: userJson.uid,
-                        scope: userJson.scope,
-
-                        // gdpr: we pass these flags for easier client-consumption.
-                        hasGDPROptOut: this.hasGDPROptOut,
-                        legalAcceptedAt: this.legalAcceptedAt
-                    };
-                },
-                getPublicAppUserProfileJSONObject: async function (this: IInstance): Promise<IPublicAppUserProfile> {
-                    const user = await this.getUser();
-
-                    return {
-                        uid: user.uid
-                    };
-                }
+        classMethods: {
+            associate: function (models: IModels) {
+                // tslint:disable:no-void-expression
+                associations = {
+                    // foreign key of User is primary key of this model
+                    User: AppUserProfile.belongsTo(models.User, {
+                        foreignKey: "UserUid", // fk in current model
+                        targetKey: "uid" // reference primary key in other model
+                    })
+                };
+                // tslint:enable:no-void-expression
             }
-        });
+        },
+        instanceMethods: {
+            getAppUserProfileJsonObject: async function (this: IInstance): Promise<Object> {
+                const user = await this.getUser();
+                const userJson = await user.getUserJsonObject();
+
+                return {
+                    uid: userJson.uid,
+                    scope: userJson.scope,
+
+                    // gdpr: we pass these flags for easier client-consumption.
+                    hasGDPROptOut: this.hasGDPROptOut,
+                    legalAcceptedAt: this.legalAcceptedAt
+                };
+            },
+            getPublicAppUserProfileJSONObject: async function (this: IInstance): Promise<IPublicAppUserProfile> {
+                const user = await this.getUser();
+
+                return {
+                    uid: user.uid
+                };
+            }
+        }
+    });
 
     return AppUserProfile;
 }
