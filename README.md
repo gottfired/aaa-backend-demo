@@ -2,7 +2,17 @@
 
 This is a demo backend serving the API for https://github.com/majodev/aaa-frontend-demo and https://github.com/gottfired/aaa-frontent-demo-angular
 
+# Prerequisites: Needed software for workshop
+* Javascript runtime: *nodejs* (https://nodejs.org/). Version installed for this project (12 LTS)
+    * If you already have nodejs installed on your machine and want to switch between versions for this workshop, install *nvm* (https://github.com/nvm-sh/nvm).
+    On Windows machines use *nvm-windows* (https://github.com/coreybutler/nvm-windows)
+* Editor: *Visual Studio Code* (https://code.visualstudio.com/). Microsoft's typescript IDE (Electron App written in TS)
+* Version control: *git* with *Sourcetree* (https://www.sourcetreeapp.com/). On Linux you can use *GitKraken* (https://www.gitkraken.com/)
+* Vagrant (2.2.3)
+* VirtualBox (5.2.3)
+* Ansible (2.8.0 using Python 2.7.10)
 
+# Original README below ...
 
 This project was scaffolded through [create-aaa-backend](https://git.allaboutapps.at/projects/AW/repos/aaa-backend-stack/browse/packages/create-aaa-backend/README.md).
 
