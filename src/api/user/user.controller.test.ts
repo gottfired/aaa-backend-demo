@@ -20,5 +20,8 @@ describe("PATCH /api/v1/user/profile", function () {
         expect(res).to.have.status(200);
         expect(res.body.data).to.eql(data);
 
+        const res2 = await Request.create("GET", "/api/v1/user/profile", { user: "user1" });
+        expect(res2).to.have.status(200);
+        expect(res2.body.data).to.eql(data);
     });
 });
