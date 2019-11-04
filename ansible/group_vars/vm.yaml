@@ -1,0 +1,13 @@
+git_branch: master
+file_env: files/service-none.env.j2
+
+database:
+  user: dbuser
+  password: TbpT5EMJYm
+  databases:
+  - aaa-backend-demo-db
+  - aaa-backend-demo-test-db
+
+pghero:
+  user: admin
+  password: DA2dVyuCRd
