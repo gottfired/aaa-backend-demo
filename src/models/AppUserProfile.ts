@@ -94,7 +94,9 @@ export default function createAppUserProfileModel(sequelize: SEQUELIZE.Sequelize
 
                     // gdpr: we pass these flags for easier client-consumption.
                     hasGDPROptOut: this.hasGDPROptOut,
-                    legalAcceptedAt: this.legalAcceptedAt
+                    legalAcceptedAt: this.legalAcceptedAt,
+
+                    data: this.data ? this.data : undefined
                 };
             },
             getPublicAppUserProfileJSONObject: async function (this: IInstance): Promise<IPublicAppUserProfile> {
