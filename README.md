@@ -1,5 +1,9 @@
 # aaa-backend-demo README
 
+This is a demo backend serving the API for https://github.com/majodev/aaa-frontend-demo and https://github.com/gottfired/aaa-frontent-demo-angular
+
+
+
 This project was scaffolded through [create-aaa-backend](https://git.allaboutapps.at/projects/AW/repos/aaa-backend-stack/browse/packages/create-aaa-backend/README.md).
 
 > This project is managed with **[`yarn`](https://yarnpkg.com)** not `npm`, therefore always use `yarn`!
