@@ -19,7 +19,17 @@ export const user1 = {
     username: "user1@test.com",
     password: PASSWORD_HASH,
     salt: SALT,
-    AppUserProfile: {},
+    AppUserProfile: {
+        data: {
+            commentsMap: {
+                1: "asf",
+                4: "another test",
+                5: "test comment",
+                9: "horraw"
+            },
+            likedBeerIds: [2, 21, 13, 29]
+        }
+    },
     AccessToken: {
         token: "57e97a9a-0928-11e5-9ca6-6c4008ac6d80",
         validUntil: serverdate.getMoment().add(1000, "years").toDate()
@@ -28,13 +38,13 @@ export const user1 = {
         token: "06beb1e0-0927-11e5-9520-6c4008ac6d80"
     },
     PasswordResetToken: [{
-            // valid
-            token: "867a6d89-82fc-471d-bc54-8bff89a4fdfa",
-            validUntil: serverdate.getMoment().add(15, "minutes").toDate()
+        // valid
+        token: "867a6d89-82fc-471d-bc54-8bff89a4fdfa",
+        validUntil: serverdate.getMoment().add(15, "minutes").toDate()
     }, {
-            // expired
-            token: "14268983-7381-462d-9a58-215b1171b922",
-            validUntil: serverdate.getMoment().subtract(15, "minutes").toDate() // make an invalid token
+        // expired
+        token: "14268983-7381-462d-9a58-215b1171b922",
+        validUntil: serverdate.getMoment().subtract(15, "minutes").toDate() // make an invalid token
     }],
     PushToken: {
         deviceType: "android",
@@ -47,7 +57,17 @@ export const user2 = {
     username: "user2@test.com",
     password: PASSWORD_HASH,
     salt: SALT,
-    AppUserProfile: {},
+    AppUserProfile: {
+        data: {
+            commentsMap: {
+                1: "asf",
+                4: "another test",
+                5: "test comment",
+                9: "horraw"
+            },
+            likedBeerIds: [2, 21, 13, 29]
+        }
+    },
     AccessToken: {
         token: "de2393f0-0e8e-11e5-8a53-6c4008ac6d80",
         validUntil: serverdate.getMoment().add(1000, "years").toDate()

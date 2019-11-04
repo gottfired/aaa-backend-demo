@@ -5,16 +5,18 @@ import { IAttributes as IUserAttributes, IInstance as IUserInstance, IPrimaryKey
 
 export type IPrimaryKey = string;
 
+export interface IData {
+    commentsMap?: { [id: string]: string };
+    likedBeerIds?: number[];
+}
+
 export interface IAttributes extends IDefaultModelAttributes {
     hasGDPROptOut: boolean;
     legalAcceptedAt: Date | null;
 
     UserUid: IPrimaryKey;
 
-    data: {
-        commentsMap: { [id: number]: string };
-        likedBeerIds: number[];
-    };
+    data: IData;
 
     User?: IUserInstance;
 }
