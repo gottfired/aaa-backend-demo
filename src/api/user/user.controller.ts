@@ -57,7 +57,8 @@ export class AppUser extends REST.SERVER.MethodController {
             throw REST.BOOM.notFound();
         }
 
-        // TODO: patch...
+        // Patch with new data
+        await appUserProfile.update(request.payload);
 
         return appUserProfile.getAppUserProfileJsonObject();
     }

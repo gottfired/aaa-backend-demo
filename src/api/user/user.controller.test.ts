@@ -3,7 +3,7 @@ import Request from "../../test/Request";
 
 describe("PATCH /api/v1/user/profile", function () {
 
-    it.only("patch beer data", async () => {
+    it("patch beer data", async () => {
 
         const data = {
             likedBeerIds: [1, 2, 3],
